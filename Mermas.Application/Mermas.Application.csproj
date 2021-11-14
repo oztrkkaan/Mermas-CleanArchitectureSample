@@ -18,8 +18,4 @@
     <ProjectReference Include="..\Mermas.Domain\Mermas.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Products\Commands\UpdateProduct\" />
-  </ItemGroup>
-
 </Project>
