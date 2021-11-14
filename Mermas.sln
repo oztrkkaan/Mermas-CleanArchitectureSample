@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{000ECC8E-2387-45E8-9B80-7AF50EEBEDD7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mermas.Domain", "Mermas.Domain\Mermas.Domain.csproj", "{CE05F715-1219-4425-B1B1-84A5BF9495D7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mermas.Application", "Mermas.Application\Mermas.Application.csproj", "{2794450A-EE44-4BA5-A523-21231FBA211C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mermas.Infrastructure", "Mermas.Infrastructure\Mermas.Infrastructure.csproj", "{122DCE4A-B263-4F66-A9EC-B92209F8513A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mermas.Api", "Mermas.Api\Mermas.Api.csproj", "{86F2B61D-2345-4398-B01C-6BD7F97EAC25}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mermas.Persistence", "Mermas.Persistence\Mermas.Persistence.csproj", "{4119C09D-B590-4FE1-98AF-5EA9A19386EC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CE05F715-1219-4425-B1B1-84A5BF9495D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE05F715-1219-4425-B1B1-84A5BF9495D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE05F715-1219-4425-B1B1-84A5BF9495D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE05F715-1219-4425-B1B1-84A5BF9495D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2794450A-EE44-4BA5-A523-21231FBA211C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2794450A-EE44-4BA5-A523-21231FBA211C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2794450A-EE44-4BA5-A523-21231FBA211C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2794450A-EE44-4BA5-A523-21231FBA211C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{122DCE4A-B263-4F66-A9EC-B92209F8513A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{122DCE4A-B263-4F66-A9EC-B92209F8513A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{122DCE4A-B263-4F66-A9EC-B92209F8513A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{122DCE4A-B263-4F66-A9EC-B92209F8513A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86F2B61D-2345-4398-B01C-6BD7F97EAC25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86F2B61D-2345-4398-B01C-6BD7F97EAC25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86F2B61D-2345-4398-B01C-6BD7F97EAC25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86F2B61D-2345-4398-B01C-6BD7F97EAC25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4119C09D-B590-4FE1-98AF-5EA9A19386EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4119C09D-B590-4FE1-98AF-5EA9A19386EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4119C09D-B590-4FE1-98AF-5EA9A19386EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4119C09D-B590-4FE1-98AF-5EA9A19386EC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CE05F715-1219-4425-B1B1-84A5BF9495D7} = {000ECC8E-2387-45E8-9B80-7AF50EEBEDD7}
+		{2794450A-EE44-4BA5-A523-21231FBA211C} = {000ECC8E-2387-45E8-9B80-7AF50EEBEDD7}
+		{122DCE4A-B263-4F66-A9EC-B92209F8513A} = {000ECC8E-2387-45E8-9B80-7AF50EEBEDD7}
+		{86F2B61D-2345-4398-B01C-6BD7F97EAC25} = {000ECC8E-2387-45E8-9B80-7AF50EEBEDD7}
+		{4119C09D-B590-4FE1-98AF-5EA9A19386EC} = {000ECC8E-2387-45E8-9B80-7AF50EEBEDD7}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9C6FA4E1-E84A-4BB3-8C21-4C6999DD3C74}
+	EndGlobalSection
+EndGlobal
