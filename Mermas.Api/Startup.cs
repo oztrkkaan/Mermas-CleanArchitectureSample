@@ -1,4 +1,5 @@
 using Mermas.Application;
+using Mermas.Infrastructure.Filter;
 using Mermas.Persistence.Configurations;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -24,7 +25,9 @@ namespace Mermas.Api
             services.AddApplicationLayer();
             services.AddPersistenceLayer(Configuration);
 
-            services.AddControllers();
+            services.AddControllers(opt=> {
+                opt.Filters.Add<ExceptionHandlerFilter>();
+            });
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Mermas.Api", Version = "v1" });
