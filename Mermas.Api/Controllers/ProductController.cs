@@ -25,6 +25,9 @@ namespace Mermas.Api.Controllers
         public async Task<List<GetProductsByFilterResponse>> GetByFilter([FromQuery] GetProductsByFilterQuery request, CancellationToken cancellationToken)
             => await _mediator.Send(request, cancellationToken);
 
+        [HttpDelete]
+        public async Task<DeleteProductResponse> DeleteById([FromBody] DeleteProductCommand request, CancellationToken cancellationToken)
+            => await _mediator.Send(request, cancellationToken);
 
     }
 }

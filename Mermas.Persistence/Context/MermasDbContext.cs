@@ -1,6 +1,7 @@
 ﻿using Mermas.Application.Common.Interfaces;
 using Mermas.Domain.Common;
 using Mermas.Domain.Entities;
+using Mermas.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using System;
@@ -36,6 +37,19 @@ namespace Mermas.Persistence.Configurations
                         break;
                     case EntityState.Modified:
                         entry.Entity.ModifiedDate = DateTime.Now;
+                        break;
+                    default:
+                        break;
+                }
+            }
+            foreach (var entry in ChangeTracker.Entries<ISoftDelete>())
+            {
+                switch (entry.State)
+                {
+                    case EntityState.Deleted:
+                        entry.State = EntityState.Modified;
+                        entry.Entity.DeletionDate = DateTime.Now;
+                        entry.Entity.IsDeleted = true;
                         break;
                     default:
                         break;
