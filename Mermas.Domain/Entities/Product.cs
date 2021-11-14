@@ -9,7 +9,8 @@ namespace Mermas.Domain.Entities
         private string _title;
         public string Title
         {
-            get => _title; set
+            get => _title; 
+            set
             {
                 if (string.IsNullOrEmpty(value))
                 {
@@ -25,7 +26,8 @@ namespace Mermas.Domain.Entities
         private int _stockQuantity;
         public int StockQuantity
         {
-            get => _stockQuantity; set
+            get => _stockQuantity;
+            set
             {
                 if (value < Category.ProductMinStockQuantity)
                 {
@@ -34,9 +36,18 @@ namespace Mermas.Domain.Entities
                 _stockQuantity = value;
             }
         }
-        public bool IsDeleted { get; set; }
-        public DateTime? DeletionDate { get; set; }
+        private bool _isDeleted;
 
+        public bool IsDeleted
+        {
+            get { return _isDeleted; }
+            set
+            {
+                DeletionDate = value ? DateTime.Now : null;
+                _isDeleted = value;
+            }
+        }
+        public DateTime? DeletionDate { get; private set; }
         public void IncreaseStockQuantity(int quantity)
         {
             if (quantity < Category.ProductMinStockQuantity)

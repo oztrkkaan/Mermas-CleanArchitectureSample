@@ -48,7 +48,6 @@ namespace Mermas.Persistence.Configurations
                 {
                     case EntityState.Deleted:
                         entry.State = EntityState.Modified;
-                        entry.Entity.DeletionDate = DateTime.Now;
                         entry.Entity.IsDeleted = true;
                         break;
                     default:

@@ -42,9 +42,7 @@ namespace Mermas.Application.Products.Commands
             {
                 throw new NotFoundException(nameof(Product), request.Id);
             }
-
-            // product = _mapper.Map<Product>(request);
-
+      
             product.Title = request.Title;
             product.Description = request.Description;
             product.StockQuantity = request.StockQuantity;
