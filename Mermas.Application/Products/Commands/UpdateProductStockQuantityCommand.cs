@@ -1,10 +1,7 @@
 ﻿using MediatR;
 using Mermas.Application.Common.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -28,7 +25,11 @@ namespace Mermas.Application.Products.Commands
 
         public async Task<UpdateProductStockQuantityResponse> Handle(UpdateProductStockQuantityCommand request, CancellationToken cancellationToken)
         {
-            var product = await _context.Products.Where(m => m.Id == request.ProductId && m.Merchant.Id == request.MerchantId).Include(m => m.Merchant).FirstOrDefaultAsync(cancellationToken);
+            var product = await _context.Products.Where(m => m.Id == request.ProductId && m.Merchant.Id == request.MerchantId)
+                .Include(m => m.Merchant)
+                .Include(m=>m.Category)
+                .FirstOrDefaultAsync(cancellationToken);
+
             var merchant = product.Merchant;
 
             product.Merchant.SetProductStockQuantity(product, request.StockQuantity);

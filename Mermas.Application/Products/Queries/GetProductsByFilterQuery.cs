@@ -3,10 +3,8 @@ using MediatR;
 using Mermas.Application.Common.Interfaces;
 using Mermas.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -30,7 +28,7 @@ namespace Mermas.Application.Products.Queries
         }
         public async Task<List<GetProductsByFilterResponse>> Handle(GetProductsByFilterQuery request, CancellationToken cancellationToken)
         {
-           IQueryable<Product>  products = _context.Products.Include(m => m.Category);
+            IQueryable<Product> products = _context.Products.Include(m => m.Category);
 
             if (!string.IsNullOrEmpty(request.SearchKey))
             {

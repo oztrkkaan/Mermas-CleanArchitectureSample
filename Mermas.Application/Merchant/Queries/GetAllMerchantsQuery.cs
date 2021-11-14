@@ -11,7 +11,6 @@ namespace Mermas.Application.Merchant.Queries
 {
     public class GetAllMerchantsQuery : IRequest<List<GetAllMerchantQueryResponse>>
     {
-
     }
 
     public class GetAllMerchantQueryHandler : IRequestHandler<GetAllMerchantsQuery, List<GetAllMerchantQueryResponse>>

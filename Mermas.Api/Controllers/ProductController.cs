@@ -35,6 +35,10 @@ namespace Mermas.Api.Controllers
 
         [HttpPut]
         public async Task<UpdateProductStockQuantityResponse> UpdateStockQuantity([FromBody] UpdateProductStockQuantityCommand request, CancellationToken cancellationToken)
-        => await _mediator.Send(request, cancellationToken);
+           => await _mediator.Send(request, cancellationToken);
+
+        [HttpPut]
+        public async Task<UpdateProductCategoryResponse> UpdateCategory([FromBody] UpdateProductCategoryCommand request, CancellationToken cancellationToken)
+           => await _mediator.Send(request, cancellationToken);
     }
 }

@@ -10,7 +10,6 @@ namespace Mermas.Application.Merchant.Commands
         public string Title { get; set; }
     }
 
-
     public class CreateMerchantCommandHandler : IRequestHandler<CreateMerchantCommand, CreateMerchantResponse>
     {
         IMermasDbContext _context;
@@ -33,7 +32,6 @@ namespace Mermas.Application.Merchant.Commands
             };
         }
     }
-
     public class CreateMerchantResponse
     {
         public int MerchantId { get; set; }

@@ -25,7 +25,8 @@ namespace Mermas.Api
             services.AddApplicationLayer();
             services.AddPersistenceLayer(Configuration);
 
-            services.AddControllers(opt=> {
+            services.AddControllers(opt =>
+            {
                 opt.Filters.Add<ExceptionHandlerFilter>();
             });
             services.AddSwaggerGen(c =>

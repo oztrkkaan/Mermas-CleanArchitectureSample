@@ -22,7 +22,7 @@ namespace Mermas.Api.Controllers
             => await _mediator.Send(request, cancellationToken);
 
         [HttpGet]
-        public async Task<List<GetAllMerchantQueryResponse>> GetAll(CancellationToken cancellationToken) 
+        public async Task<List<GetAllMerchantQueryResponse>> GetAll(CancellationToken cancellationToken)
             => await _mediator.Send(new GetAllMerchantsQuery(), cancellationToken);
     }
 }

@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using MediatR;
+﻿using MediatR;
 using Mermas.Application.Common.Exceptions;
 using Mermas.Application.Common.Interfaces;
 using Mermas.Domain.Entities;

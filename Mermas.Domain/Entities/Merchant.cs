@@ -55,6 +55,10 @@ namespace Mermas.Domain.Entities
         {
             product.SetStockQuantity(quantity);
         }
+        public void SetProductCategory(Product product, Category category)
+        {
+            product.SetCategory(category);
+        }
     }
 
 }

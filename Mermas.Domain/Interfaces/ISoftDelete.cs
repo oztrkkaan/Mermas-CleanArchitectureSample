@@ -7,6 +7,6 @@ namespace Mermas.Domain.Interfaces
         bool IsDeleted { get; }
         DateTime? DeletionDate { get; }
         void SoftDelete();
-        
+
     }
 }

@@ -18,11 +18,11 @@ namespace Mermas.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<CreateCategoryResponse> Create([FromBody] CreateCategoryCommand request, CancellationToken cancellationToken) 
+        public async Task<CreateCategoryResponse> Create([FromBody] CreateCategoryCommand request, CancellationToken cancellationToken)
             => await _mediator.Send(request, cancellationToken);
-        
+
         [HttpGet]
-        public async Task<List<GetAllCategoriesResponse>> GetAll(CancellationToken cancellationToken) 
+        public async Task<List<GetAllCategoriesResponse>> GetAll(CancellationToken cancellationToken)
             => await _mediator.Send(new GetAllCategoriesQuery(), cancellationToken);
 
     }

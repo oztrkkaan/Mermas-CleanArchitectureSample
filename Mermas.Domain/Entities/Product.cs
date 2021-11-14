@@ -76,11 +76,12 @@ namespace Mermas.Domain.Entities
 
         public void SetStockQuantity(int quantity)
         {
-            if (quantity < Category.ProductMinStockQuantity)
-            {
-                new ArgumentException($"Decreased quantity cannot be less than {Category.ProductMinStockQuantity}");
-            }
             StockQuantity = quantity;
+        }
+
+        public void SetCategory(Category category)
+        {
+            Category = category;
         }
 
 
