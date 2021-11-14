@@ -32,8 +32,9 @@ namespace Mermas.Application.Products.Commands
             {
                 throw new NotFoundException(nameof(Product), request.ProductId);
             }
-
+            
             _context.Products.Remove(product);
+
             await _context.SaveChangesAsync(cancellationToken);
             return new DeleteProductResponse
             {

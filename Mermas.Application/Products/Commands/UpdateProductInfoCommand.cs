@@ -13,17 +13,17 @@ using System.Threading.Tasks;
 
 namespace Mermas.Application.Products.Commands
 {
-    public class UpdateProductCommand : IRequest<UpdateProductResponse>
+    public class UpdateProductInfoCommand : IRequest<UpdateProductResponse>
     {
         public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public int StockQuantity { get; set; }
         public int CategoryId { get; set; }
-
+        public int MerchantId { get; set; }
     }
 
-    public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommand, UpdateProductResponse>
+    public class UpdateProductCommandHandler : IRequestHandler<UpdateProductInfoCommand, UpdateProductResponse>
     {
         IMermasDbContext _context;
         IMapper _mapper;
@@ -34,18 +34,20 @@ namespace Mermas.Application.Products.Commands
             _mapper = mapper;
         }
 
-        public async Task<UpdateProductResponse> Handle(UpdateProductCommand request, CancellationToken cancellationToken)
+        public async Task<UpdateProductResponse> Handle(UpdateProductInfoCommand request, CancellationToken cancellationToken)
         {
-            var product = _context.Products.Where(m => m.Id == request.Id).Include(m => m.Category).FirstOrDefault();
-
+            var product = _context.Products.Where(m => m.Id == request.Id && m.Merchant.Id == request.MerchantId).Include(m => m.Merchant).FirstOrDefault();
+            var merchant = product.Merchant;
             if (product == null)
             {
                 throw new NotFoundException(nameof(Product), request.Id);
             }
-      
-            product.Title = request.Title;
-            product.Description = request.Description;
-            product.StockQuantity = request.StockQuantity;
+            if (merchant == null)
+            {
+                throw new NotFoundException(nameof(Merchant), request.MerchantId);
+            }
+
+            merchant.UpdateProductInfo(product, request.Title, request.Description);
 
             await _context.SaveChangesAsync(cancellationToken);
 

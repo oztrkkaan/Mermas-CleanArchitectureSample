@@ -42,5 +42,20 @@ namespace Mermas.Domain.Entities
             }
             product.DecreaseStockQuantity(quantity);
         }
+
+        public Product CreateProduct(string title, string description, int stockQuantity, Category category)
+        {
+            return new Product(title, description, stockQuantity, category, this);
+        }
+        public void UpdateProductInfo(Product product, string title, string description)
+        {
+            product.UpdateInfo(title, description);
+        }
+        public void SetProductStockQuantity(Product product, int quantity)
+        {
+            product.SetStockQuantity(quantity);
+        }
     }
+
 }
+

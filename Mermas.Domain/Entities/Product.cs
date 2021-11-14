@@ -6,11 +6,22 @@ namespace Mermas.Domain.Entities
 {
     public class Product : AuditableEntity, ISoftDelete
     {
+        public Product(string title, string description, int stockQuantity, Category category, Merchant merchant)
+        {
+            Title = title;
+            Description = description;
+            Category = category;
+            Merchant = merchant;
+            StockQuantity = stockQuantity;
+        }
+        public Product()
+        {
+        }
         private string _title;
         public string Title
         {
-            get => _title; 
-            set
+            get => _title;
+            private set
             {
                 if (string.IsNullOrEmpty(value))
                 {
@@ -19,15 +30,15 @@ namespace Mermas.Domain.Entities
                 _title = value;
             }
         }
-        public string Description { get; set; }
-        public Category Category { get; set; }
-        public Merchant Merchant { get; set; }
-        public ProductStatuses Status { get; set; } = ProductStatuses.OnPublish;
+        public string Description { get; private set; }
+        public Category Category { get; private set; }
+        public Merchant Merchant { get; private set; }
+        public ProductStatuses Status { get; private set; } = ProductStatuses.OnPublish;
         private int _stockQuantity;
         public int StockQuantity
         {
             get => _stockQuantity;
-            set
+            private set
             {
                 if (value < Category.ProductMinStockQuantity)
                 {
@@ -36,34 +47,43 @@ namespace Mermas.Domain.Entities
                 _stockQuantity = value;
             }
         }
-        private bool _isDeleted;
 
-        public bool IsDeleted
-        {
-            get { return _isDeleted; }
-            set
-            {
-                DeletionDate = value ? DateTime.Now : null;
-                _isDeleted = value;
-            }
-        }
+        public bool IsDeleted { get; private set; }
+
         public DateTime? DeletionDate { get; private set; }
+        public void SoftDelete()
+        {
+            IsDeleted = true;
+            DeletionDate = DateTime.Now;
+        }
+
+
+
+
+        public void UpdateInfo(string title, string description)
+        {
+            Title = title;
+            Description = description;
+        }
         public void IncreaseStockQuantity(int quantity)
         {
-            if (quantity < Category.ProductMinStockQuantity)
-            {
-                new ArgumentException($"Increased quantity cannot be less than {Category.ProductMinStockQuantity}");
-            }
             StockQuantity += quantity;
         }
         public void DecreaseStockQuantity(int quantity)
+        {
+            StockQuantity += quantity * -1;
+        }
+
+        public void SetStockQuantity(int quantity)
         {
             if (quantity < Category.ProductMinStockQuantity)
             {
                 new ArgumentException($"Decreased quantity cannot be less than {Category.ProductMinStockQuantity}");
             }
-            StockQuantity += quantity * -1;
+            StockQuantity = quantity;
         }
+
+
     }
 
     public enum ProductStatuses

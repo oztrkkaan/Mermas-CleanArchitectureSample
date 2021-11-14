@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
 using Mermas.Application.Common.Exceptions;
 using Mermas.Application.Common.Interfaces;
 using Mermas.Domain.Entities;
@@ -41,21 +42,20 @@ namespace Mermas.Application.Products.Commands
                 throw new NotFoundException(nameof(Domain.Entities.Merchant), request.MerchantId);
             }
 
-            var newProduct = new Product()
-            {
-                Category = productCategory,
-                Title = request.Title,
-                Description = request.Description,
-                StockQuantity = request.StockQuantity,
-                Merchant = productMerchant
-            };
+            var product = productMerchant.CreateProduct(
+                      request.Title,
+                      request.Description,
+                      request.StockQuantity,
+                      productCategory
+                      );
 
-            await _context.Products.AddAsync(newProduct, cancellationToken);
+
+            await _context.Products.AddAsync(product, cancellationToken);
             await _context.SaveChangesAsync(cancellationToken);
 
             return new CreateProductResponse
             {
-                ProductId = newProduct.Id
+                ProductId = product.Id
             };
         }
     }

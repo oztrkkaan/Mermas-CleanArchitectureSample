@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Mermas.Application.Products.Validators
 {
-  public  class UpdateProductValidator : AbstractValidator<UpdateProductCommand>
+  public  class UpdateProductValidator : AbstractValidator<UpdateProductInfoCommand>
     {
         private const int TITLE_MAX_LENGTH = 200;
 

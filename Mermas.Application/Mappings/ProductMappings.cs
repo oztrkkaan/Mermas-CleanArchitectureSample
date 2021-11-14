@@ -20,7 +20,7 @@ namespace Mermas.Application.Mappings
                       act.MapFrom(src => src.Category);
                   });
 
-            CreateMap<UpdateProductCommand, Product>()
+            CreateMap<UpdateProductInfoCommand, Product>()
                 .ForMember(dest => dest.Category, act => act.MapFrom(src => new Category
                 {
                     Id = src.CategoryId
