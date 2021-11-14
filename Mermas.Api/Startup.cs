@@ -1,5 +1,5 @@
 using Mermas.Application;
-using Mermas.Infrastructure.Filter;
+using Mermas.Infrastructure.Filters;
 using Mermas.Persistence.Configurations;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
