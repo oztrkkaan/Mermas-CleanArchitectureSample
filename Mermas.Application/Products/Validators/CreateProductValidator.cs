@@ -15,6 +15,9 @@ namespace Mermas.Application.Products.Validators
 
             RuleFor(m => m.CategoryId)
                 .GreaterThan(0).WithMessage("Ürün bir kategoriye ait olmalıdır.");
+
+            RuleFor(m => m.MerchantId)
+             .GreaterThan(0).WithMessage("Ürün bir mağazaya ait olmalıdır.");
         }
     }
 }

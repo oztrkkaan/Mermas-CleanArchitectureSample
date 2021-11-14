@@ -18,7 +18,7 @@ namespace Mermas.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<CreateProductResponse> Create([FromBody] CreateProductCommand request, CancellationToken cancellationToken) 
+        public async Task<CreateProductResponse> Create([FromBody] CreateProductCommand request, CancellationToken cancellationToken)
             => await _mediator.Send(request, cancellationToken);
 
         [HttpGet]
@@ -26,8 +26,11 @@ namespace Mermas.Api.Controllers
             => await _mediator.Send(request, cancellationToken);
 
         [HttpDelete]
-        public async Task<DeleteProductResponse> DeleteById([FromBody] DeleteProductCommand request, CancellationToken cancellationToken)
+        public async Task<DeleteProductResponse> Delete([FromBody] DeleteProductCommand request, CancellationToken cancellationToken)
             => await _mediator.Send(request, cancellationToken);
 
+        [HttpPut]
+        public async Task<UpdateProductResponse> Update([FromBody] UpdateProductCommand request, CancellationToken cancellationToken)
+            => await _mediator.Send(request, cancellationToken);
     }
 }

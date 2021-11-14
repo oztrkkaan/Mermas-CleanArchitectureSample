@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Mermas.Application.Products.Commands;
 using Mermas.Application.Products.Queries;
 using Mermas.Domain.Entities;
 using System;
@@ -18,6 +19,12 @@ namespace Mermas.Application.Mappings
                   {
                       act.MapFrom(src => src.Category);
                   });
+
+            CreateMap<UpdateProductCommand, Product>()
+                .ForMember(dest => dest.Category, act => act.MapFrom(src => new Category
+                {
+                    Id = src.CategoryId
+                }));
         }
     }
 }
