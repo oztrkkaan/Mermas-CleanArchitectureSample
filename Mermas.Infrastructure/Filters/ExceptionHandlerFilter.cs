@@ -7,7 +7,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mermas.Infrastructure.Filter
+namespace Mermas.Infrastructure.Filters
 {
     public class ExceptionHandlerFilter : ExceptionFilterAttribute
     {
