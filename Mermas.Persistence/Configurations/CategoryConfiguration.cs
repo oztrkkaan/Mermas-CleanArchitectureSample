@@ -14,10 +14,6 @@ namespace Mermas.Persistence.Configurations
             builder.Property(m => m.Title)
                 .IsRequired();
 
-            builder.Property(m => m.IsDeleted);
-
-            builder.Property(m => m.DeletionDate);
-
             builder.Property(m => m.ProductMinStockQuantity);
         }
     }
