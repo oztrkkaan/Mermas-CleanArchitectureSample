@@ -14,9 +14,6 @@ namespace Mermas.Domain.Entities
             Merchant = merchant;
             StockQuantity = stockQuantity;
         }
-        public Product()
-        {
-        }
         private string _title;
         public string Title
         {
@@ -47,7 +44,6 @@ namespace Mermas.Domain.Entities
                 _stockQuantity = value;
             }
         }
-
         public bool IsDeleted { get; private set; }
 
         public DateTime? DeletionDate { get; private set; }
@@ -56,10 +52,6 @@ namespace Mermas.Domain.Entities
             IsDeleted = true;
             DeletionDate = DateTime.Now;
         }
-
-
-
-
         public void UpdateInfo(string title, string description)
         {
             Title = title;
@@ -83,8 +75,6 @@ namespace Mermas.Domain.Entities
         {
             Category = category;
         }
-
-
     }
 
     public enum ProductStatuses
