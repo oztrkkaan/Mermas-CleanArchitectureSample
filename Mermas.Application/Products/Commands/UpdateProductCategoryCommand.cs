@@ -27,22 +27,23 @@ namespace Mermas.Application.Products.Commands
         public async Task<UpdateProductCategoryResponse> Handle(UpdateProductCategoryCommand request, CancellationToken cancellationToken)
         {
             var product = _context.Products.Where(m => m.Id == request.ProductId && m.Merchant.Id == request.MerchantId).Include(m => m.Merchant).FirstOrDefault();
-            var merchant = product.Merchant;
-            var category = _context.Categories.Find(request.CategoryId);
             if (product == null)
             {
                 throw new NotFoundException(nameof(Product), request.ProductId);
             }
 
+            var merchant = product.Merchant;
             if (merchant == null)
             {
                 throw new NotFoundException(nameof(Merchant), request.MerchantId);
             }
 
+            var category = _context.Categories.Find(request.CategoryId);
             if (category == null)
             {
                 throw new NotFoundException(nameof(Category), request.CategoryId);
             }
+            
             product.SetCategory(category);
             await _context.SaveChangesAsync(cancellationToken);
 

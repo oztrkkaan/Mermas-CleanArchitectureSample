@@ -30,12 +30,14 @@ namespace Mermas.Application.Products.Commands
         public async Task<CreateProductResponse> Handle(CreateProductCommand request, CancellationToken cancellationToken)
         {
             var productCategory = _context.Categories.FirstOrDefault(m => m.Id == request.CategoryId);
-            var productMerchant = _context.Merchants.FirstOrDefault(m => m.Id == request.MerchantId);
 
             if (productCategory == null)
             {
                 throw new NotFoundException(nameof(Category), request.CategoryId);
             }
+
+            var productMerchant = _context.Merchants.FirstOrDefault(m => m.Id == request.MerchantId);
+
             if (productMerchant == null)
             {
                 throw new NotFoundException(nameof(Domain.Entities.Merchant), request.MerchantId);
