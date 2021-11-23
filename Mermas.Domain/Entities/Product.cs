@@ -14,6 +14,10 @@ namespace Mermas.Domain.Entities
             Merchant = merchant;
             StockQuantity = stockQuantity;
         }
+        public Product()
+        {
+
+        }
         private string _title;
         public string Title
         {
